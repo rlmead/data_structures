@@ -11,7 +11,7 @@ for c in characterData:
 characterTree.preorder(characterTree.head)
 print(characterTree.treeSum(characterTree.head))
 
-numberData = [0,1,2,3,4,5]
+numberData = [0,1,2,3,4,5,-12,8]
 
 numberTree = tree.Tree()
 
@@ -21,3 +21,5 @@ for i in numberData:
 
 numberTree.breadth(True)
 print(numberTree.treeSum(numberTree.head))
+
+print(numberTree.treeMin(numberTree.head))

@@ -108,3 +108,16 @@ class Tree():
         node_right_data = self.treeSum(node.right) if node.right else 0
 
         return total + node_left_data + node_right_data
+
+    def treeMin(self, node):
+        if node == None:
+            return float('inf')
+
+        if not isinstance(node.data, numbers.Number):
+            print('whoops, the treeMin() function only works on trees that hold number data!')
+            return
+        
+        leftMin = self.treeMin(node.left)
+        rightMin = self.treeMin(node.right)
+
+        return min([leftMin, rightMin, node.data])
