@@ -45,10 +45,10 @@ class Tree():
         print(node.data)
 
         if node.left != None:
-            self.postorder(node.left)
+            self.preorder(node.left)
         
         if node.right != None:
-            self.postorder(node.right)
+            self.preorder(node.right)
 
     def breadth(self, withRelationships = False):
         if self.head == None:
