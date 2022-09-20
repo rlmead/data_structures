@@ -50,7 +50,7 @@ class Tree():
         if node.right != None:
             self.postorder(node.right)
 
-    def breadth(self):
+    def breadth(self, withRelationships = False):
         if self.head == None:
             return
 
@@ -64,7 +64,12 @@ class Tree():
             if front.right != None:
                 queue.append(front.right)
 
-            print(front.data)
+            if withRelationships:
+                front_left_data = front.left.data if front.left else 'None'
+                front_right_data = front.right.data if front.right else 'None'
+                print(str(front.data) + ': left child = ' + str(front_left_data) + ', right child = ' + str(front_right_data))
+            else:
+                print(front.data)
 
     def includes(self, needle):
         if self.head == None:
