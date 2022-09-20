@@ -1,3 +1,5 @@
+import numbers
+
 class Node():
     def __init__(self, data):
         self.data = data
@@ -91,3 +93,18 @@ class Tree():
                 queue.append(front.right)
         
         return False
+
+    def treeSum(self, node):
+        if node.left == None and node.right == None:
+            return node.data
+
+        if not isinstance(node.data, numbers.Number):
+            print('whoops, the treeSum() function only works on trees that hold number data!')
+            return
+
+        total = node.data
+
+        node_left_data = self.treeSum(node.left) if node.left else 0
+        node_right_data = self.treeSum(node.right) if node.right else 0
+
+        return total + node_left_data + node_right_data
