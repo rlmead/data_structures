@@ -120,4 +120,17 @@ class Tree():
         leftMin = self.treeMin(node.left)
         rightMin = self.treeMin(node.right)
 
-        return min([leftMin, rightMin, node.data])
+        return min(leftMin, rightMin, node.data)
+
+    def treeMax(self, node):
+        if node == None:
+            return -float('inf')
+
+        if not isinstance(node.data, numbers.Number):
+            print('whoops, the treeMax() function only works on trees that hold number data!')
+            return
+
+        leftMax = self.treeMax(node.left)
+        rightMax = self.treeMax(node.right)
+
+        return max(leftMax, rightMax, node.data)
