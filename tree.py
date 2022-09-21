@@ -134,3 +134,21 @@ class Tree():
         rightMax = self.treeMax(node.right)
 
         return max(leftMax, rightMax, node.data)
+
+    def shortestPath(self, node):
+        if node == None:
+            return 0
+
+        leftPath = self.longestPath(node.left)
+        rightPath = self.longestPath(node.right)
+
+        return min(leftPath, rightPath) + 1
+
+    def longestPath(self, node):
+        if node == None:
+            return 0
+
+        leftPath = self.longestPath(node.left)
+        rightPath = self.longestPath(node.right)
+
+        return max(leftPath, rightPath) + 1
